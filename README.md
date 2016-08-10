@@ -10,6 +10,8 @@ The goal of this document is to provide an audiobook profile for the [EPUB BFF m
 
 ## Example
 
+In the following example, the audiobook is divided in two MP3 files but HTTP live streaming is also available as an alternative.
+
 ```json
 {
   "metadata": {
@@ -30,8 +32,8 @@ The goal of this document is to provide an audiobook profile for the [EPUB BFF m
   ],
 
   "spine": [
-    {"href": "http://www.example.org/chapter1.mp3", "type": "audio/mpeg", "bitrate": 128, "duration": 600, "title": "Chapter 1"}, 
-    {"href": "http://www.example.org/chapter2.mp3", "type": "audio/mpeg", "bitrate": 128, "duration": 920, "title": "Chapter 2"}
+    {"href": "http://example.org/chapter1.mp3", "type": "audio/mpeg", "bitrate": 128, "duration": 600, "title": "Chapter 1"}, 
+    {"href": "http://example.org/chapter2.mp3", "type": "audio/mpeg", "bitrate": 128, "duration": 920, "title": "Chapter 2"}
   ]
 }
 ```
