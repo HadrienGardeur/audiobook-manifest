@@ -12,7 +12,8 @@ The goal of this document is to provide an audiobook profile for the [EPUB BFF m
 
 The core metadata for the audiobook manifest are based on [the default context for EPUB BFF](https://github.com/dauwhe/epub31-bff/tree/master/contexts/default) with the following additional requirements:
 
-- it must include a `duration` expressed as a ISO 8601 duration
+- it must include a `@type` element that identifies the manifest as an audiobook using the bib extension to schema.org: `http://bib.schema.org/Audiobook`
+- it must include a `duration` element that provides the total duration of the audiobook
 - it must also include the `readBy` element
 
 While the format and bitrate of the audio files that constitute the audiobook must be provided per file, it is also recommended to include:
@@ -27,7 +28,7 @@ An audiobook is divided into one or more audio files, which are all listed in th
 In addition to the normal requirements of a `spine`, all link objects have the following additional requirements:
  
  - all link objects must point strictly to audio files
- - every link object must include a `duration` expressed as a ISO 8601 duration 
+ - every link object must include a `duration` that provides the duration of each individual audio file
 
 ## Example
 
@@ -44,11 +45,14 @@ In the following example, the audiobook is divided in two MP3 files but HTTP liv
     "language": "en",
     "publisher": "Whale Publishing Ltd.",
     "modified": "2016-02-18T10:32:18Z",
-    "duration": "1H12M"
+    "duration": "1H12M",
+    "type": "audio/mpeg",
+    "bitrate": 128
   },
 
   "links": [
     {"rel": "self", "href": "http://example.org/manifest.json", "type": "application/audiobook-manifest+json"},
+    {"rel": "cover", "href": "http://example.org/cover.jpeg", "type": "image/jpeg", "height": 300, "width": 300},
     {"rel": "alternate", "href": "http://example.org/audiobook.m3u", "type": "audio/mpegurl", "bitrate": 64}
   ],
 
