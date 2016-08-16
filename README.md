@@ -89,5 +89,5 @@ The container also has the following properties:
 
 When an audiobook is distributed in a container (instead of simply as a manifest), the manifest has the following additional restrictions:
 
-- the `spine` must strictly reference audio files that are present in the conainer
+- the `spine` must strictly reference audio files that are present in the container
 - to reference such files, all URIs in the `spine` must be relative to the manifest (at the root of the container)
