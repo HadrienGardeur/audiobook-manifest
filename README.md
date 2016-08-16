@@ -91,3 +91,15 @@ When an audiobook is distributed in a container (instead of simply as a manifest
 
 - the `spine` must strictly reference audio files that are present in the container
 - to reference such files, all URIs in the `spine` must be relative to the manifest (at the root of the container)
+
+## Timeline
+
+A manifest can also provide additional navigation through a `timeline` collection.
+
+A timeline is a list of labels pointing to specific timestamps in an audiobook.
+
+Each link object in a `timeline` collection has the following requirements:
+
+- it must point to an audio file listed in the `spine` and use a media fragment to point to a specific timestamp
+- it must provide a `title`
+- it must not use `type`, `duration` or `bitrate` to avoid duplication with the `spine`
