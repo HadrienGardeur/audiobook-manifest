@@ -1,38 +1,6 @@
 # Audiobook Manifest
 
-Unlike ebooks, there is no single dominant format for audiobooks or even a real attempt to standardize them.
-
-The goal of this document is to provide an audiobook profile for the [EPUB BFF manifest] (https://github.com/dauwhe/epub31-bff) that will cover the following requirements:
-
-- provide metadata
-- list the different components of an audiobook
-- support multiple audio formats and means of accessing an audiobook (streaming or downloads)
-
-## Metadata
-
-The core metadata for the audiobook manifest are based on [the default context for EPUB BFF](https://github.com/dauwhe/epub31-bff/tree/master/contexts/default) with the following additional requirements:
-
-- it must include a `@type` element that identifies the manifest as an audiobook using the bib extension to schema.org: `http://bib.schema.org/Audiobook`
-- it must include a `duration` element that provides the total duration of the audiobook
-- it must also include the `readBy` element
-
-While the format and bitrate of the audio files that constitute the audiobook must be provided per file, it is also recommended to include:
-
-- the main media type used for the audio files using the `type` element
-- the bitrate for those files using the `bitrate` element
-
-## Listing Audio Files
-
-An audiobook is divided into one or more audio files, which are all listed in the `spine` of the manifest, in reading order.
-
-In addition to the normal requirements of a `spine`, all link objects have the following additional requirements:
- 
- - all link objects must point strictly to audio files
- - every link object must include a `duration` that provides the duration of each individual audio file
-
 ## Example
-
-In the following example, the audiobook is divided in two MP3 files but HTTP live streaming is also available as an alternative.
 
 ```json
 {
@@ -74,3 +42,52 @@ In the following example, the audiobook is divided in two MP3 files but HTTP liv
   ]
 }
 ```
+
+
+## Introduction
+
+Unlike ebooks, there is no single dominant format for audiobooks or even a real attempt to standardize them.
+
+The goal of this document is to provide an audiobook profile for the [EPUB BFF manifest] (https://github.com/dauwhe/epub31-bff) that will cover the following requirements:
+
+- provide metadata
+- list the different components of an audiobook
+- support multiple audio formats and means of accessing an audiobook (streaming or downloads)
+
+## Metadata
+
+The core metadata for the audiobook manifest are based on [the default context for EPUB BFF](https://github.com/dauwhe/epub31-bff/tree/master/contexts/default) with the following additional requirements:
+
+- it must include a `@type` element that identifies the manifest as an audiobook using the bib extension to schema.org: `http://bib.schema.org/Audiobook`
+- it must include a `duration` element that provides the total duration of the audiobook
+- it must also include the `readBy` element
+
+While the format and bitrate of the audio files that constitute the audiobook must be provided per file, it is also recommended to include:
+
+- the main media type used for the audio files using the `type` element
+- the bitrate for those files using the `bitrate` element
+
+## Listing Audio Files
+
+An audiobook is divided into one or more audio files, which are all listed in the `spine` of the manifest, in reading order.
+
+In addition to the normal requirements of a `spine`, all link objects have the following additional requirements:
+ 
+ - all link objects must point strictly to audio files
+ - every link object must include a `duration` that provides the duration of each individual audio file
+
+## Container
+
+In order to facilitate distribution, both manifest and audio files can also be distributed using a container.
+
+In this case, all files (individual audio files and manifest) must be contained in a ZIP where the manifest is at the root of the zip and named `manifest.json`.
+
+The container also has the following properties:
+
+- its file extension must be `.audiobook`
+- its media type must be `application/audiobook+zip`
+
+When an audiobook is distributed in a container (instead of simply as a manifest), the manifest has the following additional restrictions:
+
+- the `spine` must strictly reference audio files that are present in the conainer
+- to reference such files, all URIs in the `spine` must be relative to the manifest (at the root of the container)
