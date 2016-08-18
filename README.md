@@ -9,7 +9,7 @@
     "identifier": "urn:isbn:9780000000001",
     "title": "Moby-Dick",
     "author": "Herman Melville",
-    "readBy": "Leonard Richardson",
+    "readBy": "Joe Speaker",
     "language": "en",
     "publisher": "Whale Publishing Ltd.",
     "modified": "2016-02-18T10:32:18Z",
@@ -19,7 +19,7 @@
   },
 
   "links": [
-    {"rel": "self", "href": "http://example.org/manifest.json", "type": "application/audiobook-manifest+json"},
+    {"rel": "self", "href": "http://example.org/manifest.audiobook-manifest", "type": "application/audiobook-manifest+json"},
     {"rel": "cover", "href": "http://example.org/cover.jpeg", "type": "image/jpeg", "height": 300, "width": 300},
     {"rel": "alternate", "href": "http://example.org/audiobook.m3u", "type": "audio/mpegurl", "bitrate": 64}
   ],
@@ -48,21 +48,26 @@
 
 Unlike ebooks, there is no single dominant format for audiobooks or even a real attempt to standardize them.
 
-The goal of this document is to provide an audiobook profile for the [EPUB BFF manifest] (https://github.com/dauwhe/epub31-bff) that will cover the following requirements:
+The goal of this document is to provide an audiobook profile for the [Web Publication Manifest] (https://github.com/dauwhe/epub31-bff) that will cover the following requirements:
 
 - provide metadata
 - list the different components of an audiobook
 - support multiple audio formats and means of accessing an audiobook (streaming or downloads)
 
+While the Audiobook Manifest is technically a profile of the Web Publication Manifest, it has its own media type and file extension in order to maximize compatibilty with audio apps:
+
+- its media type is `application/audiobook-manifest+json`
+- its file extension is `.audiobook-manifest`
+
 ## Metadata
 
-The core metadata for the audiobook manifest are based on [the default context for EPUB BFF](https://github.com/dauwhe/epub31-bff/tree/master/contexts/default) with the following additional requirements:
+The core metadata for the audiobook manifest are based on [the default context for the Web Publication Manifest](https://github.com/dauwhe/epub31-bff/tree/master/contexts/default) with the following additional requirements:
 
 - it must include a `@type` element that identifies the manifest as an audiobook using the bib extension to schema.org: `http://bib.schema.org/Audiobook`
 - it must include a `duration` element that provides the total duration of the audiobook
 - it must also include the `readBy` element
 
-While the format and bitrate of the audio files that constitute the audiobook must be provided per file, it is also recommended to include:
+While the format and bitrate of each audio file that constitute the audiobook are provided in the `spine`, it is also recommended to include:
 
 - the main media type used for the audio files using the `type` element
 - the bitrate for those files using the `bitrate` element
@@ -76,21 +81,20 @@ In addition to the normal requirements of a `spine`, all link objects have the f
  - all link objects must point strictly to audio files
  - every link object must include a `duration` that provides the duration of each individual audio file
 
-## Container
+In addition, all link objects should also include the `bitrate` whenever possible.
 
-In order to facilitate distribution, both manifest and audio files can also be distributed using a container.
+## Cover
 
-In this case, all files (individual audio files and manifest) must be contained in a ZIP where the manifest is at the root of the zip and named `manifest.json`.
+A manifest can also specify the cover of an audiobook using the "cover" relationship in `links`:
 
-The container also has the following properties:
+```json
+"links": [{
+  "rel": "cover", 
+  "href": "http://example.org/cover.jpeg", 
+  "type": "image/jpeg", 
+  "height": 300, "width": 300}]
+```
 
-- its file extension must be `.audiobook`
-- its media type must be `application/audiobook+zip`
-
-When an audiobook is distributed in a container (instead of simply as a manifest), the manifest has the following additional restrictions:
-
-- the `spine` must strictly reference audio files that are present in the container
-- to reference such files, all URIs in the `spine` must be relative to the manifest (at the root of the container)
 
 ## Timeline
 
@@ -103,3 +107,19 @@ Each link object in a `timeline` collection has the following requirements:
 - it must point to an audio file listed in the `spine` and use a media fragment to point to a specific timestamp
 - it must provide a `title`
 - it must not use `type`, `duration` or `bitrate` to avoid duplication with the `spine`
+
+## Container
+
+In order to facilitate distribution, both manifest and audio files can also be distributed using a container.
+
+In this case, all files (individual audio files and manifest) must be contained in a ZIP where the manifest is at the root of the zip and named `manifest.audiobook-manifest`.
+
+The container also has the following properties:
+
+- its file extension must be `.audiobook`
+- its media type must be `application/audiobook+zip`
+
+When an audiobook is distributed in a container (instead of simply as a manifest), the manifest has the following additional restrictions:
+
+- the `spine` must strictly reference audio files that are present in the container
+- to reference such files, all URIs in the `spine` must be relative to the manifest (at the root of the container)
