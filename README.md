@@ -9,9 +9,10 @@
     "identifier": "urn:isbn:9780000000001",
     "title": "Moby-Dick",
     "author": "Herman Melville",
-    "readBy": "Joe Speaker",
+    "narrator": ["Joe Speaker", "Lucy Narrator"],
     "language": "en",
     "publisher": "Whale Publishing Ltd.",
+    "published": "2016-02-01",
     "modified": "2016-02-18T10:32:18Z",
     "duration": "1H12M",
     "type": "audio/mpeg",
@@ -65,7 +66,7 @@ The core metadata for the audiobook manifest are based on [the default context f
 
 - it must include a `@type` element that identifies the manifest as an audiobook using the bib extension to schema.org: `http://bib.schema.org/Audiobook`
 - it must include a `duration` element that provides the total duration of the audiobook
-- it must also include the `readBy` element
+- it must also include the `narrator` element
 
 While the format and bitrate of each audio file that constitute the audiobook are provided in the `spine`, it is also recommended to include:
 
