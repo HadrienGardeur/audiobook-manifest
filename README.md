@@ -49,7 +49,7 @@
 
 Unlike ebooks, there is no single dominant format for audiobooks or even a real attempt to standardize them.
 
-The goal of this document is to provide an audiobook profile for the [Web Publication Manifest] (https://github.com/dauwhe/epub31-bff) that will cover the following requirements:
+The goal of this document is to provide an audiobook profile for the [Web Publication Manifest] (https://github.com/HadrienGardeur/webpub-manifest) that will cover the following requirements:
 
 - provide metadata
 - list the different components of an audiobook
@@ -62,7 +62,7 @@ While the Audiobook Manifest is technically a profile of the Web Publication Man
 
 ## Metadata
 
-The core metadata for the audiobook manifest are based on [the default context for the Web Publication Manifest](https://github.com/dauwhe/epub31-bff/tree/master/contexts/default) with the following additional requirements:
+The core metadata for the audiobook manifest are based on [the default context for the Web Publication Manifest](https://github.com/HadrienGardeur/webpub-manifest/tree/master/contexts/default) with the following additional requirements:
 
 - it must include a `@type` element that identifies the manifest as an audiobook using the bib extension to schema.org: `http://bib.schema.org/Audiobook`
 - it must include a `duration` element that provides the total duration of the audiobook
