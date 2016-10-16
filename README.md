@@ -20,7 +20,7 @@
   },
 
   "links": [
-    {"rel": "self", "href": "http://example.org/manifest.audiobook-manifest", "type": "application/audiobook-manifest+json"},
+    {"rel": "self", "href": "http://example.org/manifest.audiobook-manifest", "type": "application/audiobook+json"},
     {"rel": "cover", "href": "http://example.org/cover.jpeg", "type": "image/jpeg", "height": 300, "width": 300},
     {"rel": "alternate", "href": "http://example.org/audiobook.m3u", "type": "audio/mpegurl", "bitrate": 64}
   ],
@@ -57,7 +57,7 @@ The goal of this document is to provide an audiobook profile for the [Web Public
 
 While the Audiobook Manifest is technically a profile of the Web Publication Manifest, it has its own media type and file extension in order to maximize compatibilty with audio apps:
 
-- its media type is `application/audiobook-manifest+json`
+- its media type is `application/audiobook+json`
 - its file extension is `.audiobook-manifest`
 
 ## Metadata
@@ -113,7 +113,7 @@ Each link object in a `timeline` collection has the following requirements:
 
 In order to facilitate distribution, both manifest and audio files can also be distributed using a container.
 
-In this case, all files (individual audio files and manifest) must be contained in a ZIP where the manifest is at the root of the zip and named `manifest.audiobook-manifest`.
+In this case, all files (individual audio files and manifest) must be contained in a ZIP where the manifest is at the root of the zip and named `manifest.json`.
 
 The container also has the following properties:
 
