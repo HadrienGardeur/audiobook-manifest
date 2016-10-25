@@ -67,11 +67,9 @@
   var current_position = new Object;
 
   audio.addEventListener("timeupdate", function() {
-    if (audio.currentTime%10==0) {
-      current_position["time"] = audio.currentTime;
-      current_position["track"] = audio.currentSrc;
-      localStorage.setItem( manifest_url , JSON.stringify(current_position) );
-    }
+    current_position["time"] = audio.currentTime;
+    current_position["track"] = audio.currentSrc;
+    localStorage.setItem(manifest_url, JSON.stringify(current_position));
   });
 
   function getManifest(url) {
