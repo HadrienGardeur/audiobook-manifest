@@ -66,7 +66,7 @@
 
   var current_position = new Object;
 
-  audio.addEventListener("updatetime", function() {
+  audio.addEventListener("timeupdate", function() {
     if (audio.currentTime%10==0) {
       current_position["time"] = audio.currentTime;
       current_position["track"] = audio.currentSrc;
