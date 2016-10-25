@@ -21,11 +21,11 @@
     var manifest_url = DEFAULT_MANIFEST;
   };
 
-  if (current_url_params.has("document")) {
+  if (current_url_params.has("track")) {
     console.log("Found reference to a document in params")
-    var document_url = current_url_params.get("document");
+    var track = current_url_params.get("document");
   } else {
-    var document_url = undefined;
+    var track = undefined;
   };
   
   var audio = document.getElementById("audio-element");
@@ -35,7 +35,7 @@
   var previous = document.getElementById("previous");
 
   if (navigator.serviceWorker) verifyAndCacheManifest(manifest_url).catch(function() {});
-  initializeNavigation(manifest_url, document_url).catch(function() {});
+  initializeNavigation(manifest_url, track).catch(function() {});
 
   audio.addEventListener("ended", function() {
     updateTrack(manifest_url, next.href).then(function() {
@@ -62,6 +62,16 @@
       });
     };
     event.preventDefault();
+  });
+
+  var current_position = new Object;
+
+  audio.addEventListener("updatetime", function() {
+    if (audio.currentTime%10==0) {
+      current_position["time"] = audio.currentTime;
+      current_position["track"] = audio.currentSrc;
+      localStorage.setItem( manifest_url , JSON.stringify(current_position) );
+    }
   });
 
   function getManifest(url) {
@@ -112,7 +122,7 @@
       return manifest.resources.map(function(el) { return el.href});}).then(function(data) {return cacheURL(data, url);})
   };
 
-  function initializeNavigation(url, document_url) {
+  function initializeNavigation(url, track_url) {
     return getManifest(url).then(function(json) { 
       var title = json.metadata.title;
       console.log("Title of the publication: "+title);
@@ -133,9 +143,10 @@
       
       //Set start track
       var start_url = new URL(spine[0].href, url).href;
-      if (document_url) {
+      if (track_url) {
         console.log("Set audio to: "+document_url)
-        audio_source.src = document_url;
+        audio_source.src = track_url;
+        audio.load();
       } else {
         console.log("Set audio to: "+start_url)
         audio_source.src = start_url;
