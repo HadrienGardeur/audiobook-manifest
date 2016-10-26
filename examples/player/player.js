@@ -35,20 +35,22 @@
   var previous = document.getElementById("previous");
 
   if (navigator.serviceWorker) verifyAndCacheManifest(manifest_url).catch(function() {});
-  //initializeNavigation(manifest_url, track).catch(function() {});
 
   var saved_track = localStorage.getItem(manifest_url+"#track");
   var saved_position = localStorage.getItem(manifest_url+"#t");
   if (saved_position && saved_track)
   {
     console.log("Found previous position at: "+saved_track+"#t="+saved_position)
-    initializeNavigation(manifest_url, saved_track).then(function() { audio.currentTime = saved_position }).catch(function() {});
+    initializeNavigation(manifest_url, saved_track).then(
+      function() { audio.currentTime = saved_position }).catch(function() {});
   } else {
     initializeNavigation(manifest_url, track).catch(function() {});
   }
 
   audio.addEventListener("timeupdate", function() {
-    localStorage.setItem(manifest_url+"#t", audio.currentTime);
+    if (Math.round(audio.currentTime)%10==1) {
+      localStorage.setItem(manifest_url+"#t", audio.currentTime);
+    }
   });
 
   audio.addEventListener("ended", function() {
@@ -152,10 +154,6 @@
       } else {
         updateTrack(url, start_url);
       }
-
-      //Set next
-      //console.log("Next track is: "+spine[1].href);
-      //next.href = new URL(spine[1].href, url).href;
 
     });
   };
