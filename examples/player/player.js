@@ -23,7 +23,7 @@
 
   if (current_url_params.has("track")) {
     console.log("Found reference to a document in params")
-    var track = current_url_params.get("document");
+    var track = current_url_params.get("track");
   } else {
     var track = undefined;
   };
@@ -35,13 +35,31 @@
   var previous = document.getElementById("previous");
 
   if (navigator.serviceWorker) verifyAndCacheManifest(manifest_url).catch(function() {});
-  initializeNavigation(manifest_url, track).catch(function() {});
+  //initializeNavigation(manifest_url, track).catch(function() {});
+
+  var saved_track = localStorage.getItem(manifest_url+"#track");
+  var saved_position = localStorage.getItem(manifest_url+"#t");
+  if (saved_position && saved_track)
+  {
+    console.log("Found previous position at: "+saved_track+"#t="+saved_position)
+    initializeNavigation(manifest_url, saved_track, saved_position).catch(function() {});
+  } else {
+    initializeNavigation(manifest_url, track).catch(function() {});
+  }
+
+  audio.addEventListener("timeupdate", function() {
+    localStorage.setItem(manifest_url+"#t", audio.currentTime);
+  });
 
   audio.addEventListener("ended", function() {
-    updateTrack(manifest_url, next.href).then(function() {
-      audio.load();
-      audio.play()
-    });
+    if (next.hasAttribute("href")) {
+      updateTrack(manifest_url, next.href).then(function() {
+        audio.play();
+        current_position["time"] = audio.currentTime;
+        current_position["track"] = audio.currentSrc;
+        localStorage.setItem(manifest_url, JSON.stringify(current_position));
+      });
+    };Ò
   });
 
   next.addEventListener("click", function(event) {
@@ -62,14 +80,6 @@
       });
     };
     event.preventDefault();
-  });
-
-  var current_position = new Object;
-
-  audio.addEventListener("timeupdate", function() {
-    current_position["time"] = audio.currentTime;
-    current_position["track"] = audio.currentSrc;
-    localStorage.setItem(manifest_url, JSON.stringify(current_position));
   });
 
   function getManifest(url) {
@@ -120,7 +130,7 @@
       return manifest.resources.map(function(el) { return el.href});}).then(function(data) {return cacheURL(data, url);})
   };
 
-  function initializeNavigation(url, track_url) {
+  function initializeNavigation(url, track_url, timestamp) {
     return getManifest(url).then(function(json) { 
       var title = json.metadata.title;
       console.log("Title of the publication: "+title);
@@ -141,25 +151,21 @@
       
       //Set start track
       var start_url = new URL(spine[0].href, url).href;
+
       if (track_url) {
-        console.log("Set audio to: "+document_url)
-        audio_source.src = track_url;
-        audio.load();
+        updateTrack(url, track_url, timestamp);
       } else {
-        console.log("Set audio to: "+start_url)
-        audio_source.src = start_url;
-        audio_source.type = spine[0].type;
-        audio.load();
+        updateTrack(url, start_url);
       }
 
       //Set next
-      console.log("Next track is: "+spine[1].href);
-      next.href = new URL(spine[1].href, url).href;
+      //console.log("Next track is: "+spine[1].href);
+      //next.href = new URL(spine[1].href, url).href;
 
     });
   };
 
-  function updateTrack(url, current) {
+  function updateTrack(url, current, timestamp) {
     console.log("Getting "+url)
     if (current) {
       var current_src = current;
@@ -176,7 +182,12 @@
       if (current_index >= 0) {
 
         audio_source.src = new URL(spine[current_index].href, url).href;
+        localStorage.setItem(url+"#track", audio_source.src);
+        if (timestamp) {
+          audio_source.src = audio_source.src+"#t="+timestamp;
+        }
         audio_source.type = spine[current_index].type;
+        audio.load();
 
         if (current_index > 0) {
           console.log("Previous track is: "+spine[current_index - 1].href);
