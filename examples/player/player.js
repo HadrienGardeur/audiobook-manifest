@@ -42,7 +42,7 @@
   if (saved_position && saved_track)
   {
     console.log("Found previous position at: "+saved_track+"#t="+saved_position)
-    initializeNavigation(manifest_url, saved_track, saved_position).catch(function() {});
+    initializeNavigation(manifest_url, saved_track).then(function() { audio.currentTime = saved_position }).catch(function() {});
   } else {
     initializeNavigation(manifest_url, track).catch(function() {});
   }
@@ -55,9 +55,6 @@
     if (next.hasAttribute("href")) {
       updateTrack(manifest_url, next.href).then(function() {
         audio.play();
-        current_position["time"] = audio.currentTime;
-        current_position["track"] = audio.currentSrc;
-        localStorage.setItem(manifest_url, JSON.stringify(current_position));
       });
     };Ò
   });
@@ -65,7 +62,6 @@
   next.addEventListener("click", function(event) {
     if (next.hasAttribute("href")) {
       updateTrack(manifest_url, next.href).then(function() {
-        audio.load();
         audio.play()
       });
     };
@@ -75,7 +71,6 @@
   previous.addEventListener("click", function(event) {
     if ( previous.hasAttribute("href")) {
       updateTrack(manifest_url, previous.href).then(function() {
-        audio.load();
         audio.play()
       });
     };
@@ -130,7 +125,7 @@
       return manifest.resources.map(function(el) { return el.href});}).then(function(data) {return cacheURL(data, url);})
   };
 
-  function initializeNavigation(url, track_url, timestamp) {
+  function initializeNavigation(url, track_url) {
     return getManifest(url).then(function(json) { 
       var title = json.metadata.title;
       console.log("Title of the publication: "+title);
@@ -153,7 +148,7 @@
       var start_url = new URL(spine[0].href, url).href;
 
       if (track_url) {
-        updateTrack(url, track_url, timestamp);
+        updateTrack(url, track_url);
       } else {
         updateTrack(url, start_url);
       }
@@ -165,7 +160,7 @@
     });
   };
 
-  function updateTrack(url, current, timestamp) {
+  function updateTrack(url, current) {
     console.log("Getting "+url)
     if (current) {
       var current_src = current;
@@ -183,9 +178,6 @@
 
         audio_source.src = new URL(spine[current_index].href, url).href;
         localStorage.setItem(url+"#track", audio_source.src);
-        if (timestamp) {
-          audio_source.src = audio_source.src+"#t="+timestamp;
-        }
         audio_source.type = spine[current_index].type;
         audio.load();
 
