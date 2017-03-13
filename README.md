@@ -14,7 +14,7 @@
     "publisher": "Whale Publishing Ltd.",
     "published": "2016-02-01",
     "modified": "2016-02-18T10:32:18Z",
-    "duration": "1H12M",
+    "duration": 4320,
     "type": "audio/mpeg",
     "bitrate": 128
   },
@@ -26,9 +26,9 @@
   ],
 
   "spine": [
-    {"href": "http://example.org/part1.mp3", "type": "audio/mpeg", "bitrate": 128, "duration":"33M", "title": "Part 1"}, 
-    {"href": "http://example.org/part2.mp3", "type": "audio/mpeg", "bitrate": 128, "duration": "20M", "title": "Part 2"}, 
-    {"href": "http://example.org/part3.mp3", "type": "audio/mpeg", "bitrate": 128, "duration": "19M", "title": "Part 3"}
+    {"href": "http://example.org/part1.mp3", "type": "audio/mpeg", "bitrate": 128, "duration": 1980, "title": "Part 1"}, 
+    {"href": "http://example.org/part2.mp3", "type": "audio/mpeg", "bitrate": 128, "duration": 1200, "title": "Part 2"}, 
+    {"href": "http://example.org/part3.mp3", "type": "audio/mpeg", "bitrate": 128, "duration": 1140, "title": "Part 3"}
   ],
   
   "timeline": [
@@ -86,7 +86,7 @@ In addition, all link objects should also include the `bitrate` whenever possibl
 
 ## Cover
 
-A manifest can also specify the cover of an audiobook using the "cover" relationship in `links`:
+A manifest can also specify the cover of an audiobook using the `cover` relationship in `links`:
 
 ```json
 "links": [{
