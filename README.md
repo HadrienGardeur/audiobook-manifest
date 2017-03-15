@@ -125,7 +125,7 @@ When an audiobook is distributed in a container (instead of simply as a manifest
 - the `spine` must strictly reference audio files that are present in the container
 - to reference such files, all URIs in the `spine` must be relative to the manifest (at the root of the container)
 
-##Live Demo
+## Live Demo
 
 An Audiobook Manifest based on the [Librivox edition of Flatland](https://librivox.org/flatland-a-romance-of-many-dimensions-by-edwin-abbott-abbott/) is available at: https://hadriengardeur.github.io/audiobook-manifest/examples/flatland.audiobook-manifest
 
