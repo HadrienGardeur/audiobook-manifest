@@ -13,7 +13,8 @@
     "published": "2008-10-12",
     "duration": 15153,
     "type": "audio/mpeg",
-    "bitrate": 128
+    "bitrate": 128,
+    "schema:license": "https://creativecommons.org/publicdomain/zero/1.0/"
   },
 
   "links": [
