@@ -47,9 +47,9 @@
 
 ## Introduction
 
-Unlike ebooks, there is no single dominant format for audiobooks or even a real attempt to standardize them.
+There is no single dominant format for audiobooks and so far IDPF/W3C hasn't shown any particular interest in them.
 
-The goal of this document is to provide an audiobook profile for the [Readium Web Publication Manifest] (https://github.com/readium/webpub-manifest) that will cover the following requirements:
+The goal of this document is to provide an audiobook profile for the [Readium Web Publication Manifest](https://github.com/readium/webpub-manifest) that will cover the following requirements:
 
 - provide metadata
 - list the different components of an audiobook
