@@ -33,13 +33,19 @@
   
   "timeline": [
     {"href": "http://example.org/part1.mp3#t=0,299", "title": "Introduction"},
-    {"href": "http://example.org/part1.mp3#t=300,1319", "title": "Chapter 1"},
-    {"href": "http://example.org/part1.mp3#t=1320", "title": "Chapter 2"},
-    {"href": "http://example.org/part2.mp3#t=0,539", "title": "Chapter 3"},
-    {"href": "http://example.org/part2.mp3#t=540,839", "title": "Chapter 4"},
-    {"href": "http://example.org/part2.mp3#t=840", "title": "Chapter 5"},
-    {"href": "http://example.org/part3.mp3#t=0,599", "title": "Chapter 6"},
-    {"href": "http://example.org/part3.mp3#t=600", "title": "Chapter 7"},
+    {"href": "http://example.org/part1.mp3#t=300", "title": "Part 1", "children": [
+      {"href": "http://example.org/part1.mp3#t=300,1319", "title": "Chapter 1"},
+      {"href": "http://example.org/part1.mp3#t=1320", "title": "Chapter 2"},
+      {"href": "http://example.org/part2.mp3#t=0,539", "title": "Chapter 3"}
+    ]},
+    {"href": "http://example.org/part2.mp3", "title": "Part 2", "children": [
+      {"href": "http://example.org/part2.mp3#t=540,839", "title": "Chapter 4"},
+      {"href": "http://example.org/part2.mp3#t=840", "title": "Chapter 5"}
+    ]},
+    {"href": "http://example.org/part3.mp3", "title": "Part 3", "children": [
+      {"href": "http://example.org/part3.mp3#t=0,599", "title": "Chapter 6"},
+      {"href": "http://example.org/part3.mp3#t=600", "title": "Chapter 7"}
+    ]}
   ]
 }
 ```
