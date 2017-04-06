@@ -1,0 +1,153 @@
+{
+  "metadata": {
+    "@type": "http://bib.schema.org/Audiobook",
+    "identifier": "https://librivox.org/flatland-a-romance-of-many-dimensions-by-edwin-abbott-abbott/",
+    "title": "Flatland: A Romance of Many Dimensions",
+    "author": {"name": "Edwin Abbott Abbott", "sort_as": "Abbott, Abbott Edwin"},
+    "narrator": "Abe Narrator; Beatrice Narrator",
+    "language": "en-US",
+    "description": "Flatland: A Romance of Many Dimensions is an 1884 science fiction novella by the English schoolmaster Edwin Abbott Abbott. As a satire, Flatland offered pointed observations on the social hierarchy of Victorian culture. However, the novella's more enduring contribution is its examination of dimensions; in a foreword to one of the many publications of the novella, noted science writer Isaac Asimov described Flatland as \"The best introduction one can find into the manner of perceiving dimensions.\" As such, the novella is still popular amongst mathematics, physics and computer science students. (Summary by Wikipedia)",
+    "subject": ["General Fiction", "Satire", "Science Fiction"],
+    
+    "typicalAgeRange": "7-11",
+    "publisher": "Librivox",
+    "published": "2008-10-12",
+    
+    "modified": "2016-08-11T19:32:18Z",
+
+    "belongs_to": {
+      "collection": "Math for All",
+      "series": {
+        "name": "Geometry Trilogy",
+        "position": 4
+      }
+    }    
+    
+    "duration": 15153,
+    "type": "audio/mpeg",
+    "bitrate": 128,
+    "samplerate": "22KHz",
+    "channels": 2,
+    
+    "contributor": [
+        {
+        "name": {
+            "ru": "Эдвин Эбботт Эбботт",
+            "en": "Edwin Abbott Abbott"
+        },        
+        "sort_as": {
+            "ru": "Эбботт, Эдвин Эбботт",
+            "en": "Abbott, Edwin Abbott"
+        },        
+        "scheme": "https://www.loc.gov/marc/relators/",
+        "role": ["aut"]
+        }, 
+        {
+        "name": "Edwin Abbott Abbott",
+        "scheme": "https://www.loc.gov/marc/relators/",
+        "role": ["led"]
+        },
+        {
+        "name": "Abe Narrator",
+        "scheme": "https://www.loc.gov/marc/relators/",
+        "role": ["nrt"]
+        },
+        {
+        "name": "Beatrice Narrator",
+        "scheme": "https://www.loc.gov/marc/relators/",
+        "role": ["nrt"]
+        }
+    ],
+
+    "schema:hasPart": [
+        {
+            "@type": "http://schema.org/VisualArtwork",
+            "schema:url": "cover.jpg",
+            "schema:license": "https://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        {
+            "@type": "http://schema.org/Book",
+            "schema:url": "this_is_for_copyright_on_text_copy",
+            "schema:license": "https://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        {
+            "@type": "http://bib.schema.org/Audiobook",
+            "schema:url": "this_is_for_copyright_on_performance",
+            "schema:license": "https://creativecommons.org/publicdomain/zero/1.0/"
+        }
+    ]
+
+    "schema:license": "https://creativecommons.org/publicdomain/zero/1.0/"
+  },
+
+  "links": [
+    {"rel": "self", "href": "https://github.com/HadrienGardeur/audiobook-manifest/blob/master/examples/flatland.audiobook-manifest", "type": "application/audiobook+json"},
+
+    {"rel": "alternate", "href": "https://hadriengardeur.github.io/webpub-manifest/examples/MobyDick/manifest.json", "type": "application/webpub+json"},
+
+    {"rel": "license", "href": "http://example.org/license/35d9b2d6", "type": "application/vnd.readium.lcp.license.v1.0+json"},
+    {"rel": "register", "href": "http://example.org/license/35d9b2d6/register{?id,name}", "type": "application/vnd.readium.license.status.v1.0+json", "templated": true},
+    {"rel": "return", "href": "http://example.org/license/35d9b2d6/return{?id,name}", "type": "application/vnd.readium.lcp.license.v1.0+json", "templated": true},
+    {"rel": "renew", "href": "http://example.org/license/35d9b2d6/renew", "type": "text/html"},
+    {"rel": "renew", "href": "http://example.org/license/35d9b2d6/renew{?end,id,name}", "type": "application/vnd.readium.lcp.license.v1.0+json", "templated": true},
+     
+    
+    {"rel": "cover", "href": "http://ia800704.us.archive.org/9/items/LibrivoxCdCoverArt12/Flatland_1109.jpg", "type": "image/jpeg", "height": 300, "width": 300},
+    {"rel": "alternate", "href": "https://archive.org/download/flatland_rg_librivox/Flatland_64kb_librivox.m4b", "type": "audio/x-m4b", "bitrate": 64},
+    {"rel": "alternate", "href": "http://www.archive.org/download/flatland_rg_librivox/flatland_rg_librivox_64kb_mp3.zip", "type": "application/zip"},
+    {"rel": "alternate", "href": "http://www.archive.org/download/flatland_rg_librivox/flatland_rg_librivox_archive.torrent", "type": "application/x-bittorrent"}
+  ],
+
+  "spine": [
+    {
+        "href": "http://www.archive.org/download/flatland_rg_librivox/flatland_1_abbott.mp3", 
+        "type": "audio/mpeg", 
+        "bitrate": 128, 
+        "duration": 1371, 
+        "title": "Part 1, Sections 1 - 3",
+        "schema:hasPart": [
+            {
+                "@type": "http://bib.schema.org/readBy",
+                "narrator": "Abe Narrator"
+            }
+        ]
+    },
+    {
+        "href": "http://www.archive.org/download/flatland_rg_librivox/flatland_2_abbott.mp3", 
+        "type": "audio/mpeg", 
+        "bitrate": 128, 
+        "duration": 1669, 
+        "title": "Part 1, Sections 4 - 5", 
+        "schema:hasPart": [
+            {
+                "@type": "http://bib.schema.org/readBy",
+                "narrator": "Beatrice Narrator"
+            }
+        ]
+    }, 
+    {"href": "http://www.archive.org/download/flatland_rg_librivox/flatland_3_abbott.mp3", "type": "audio/mpeg", "bitrate": 128, "duration": 1506, "title": "Part 1, Sections 6 - 7"}, 
+    {"href": "http://www.archive.org/download/flatland_rg_librivox/flatland_4_abbott.mp3", "type": "audio/mpeg", "bitrate": 128, "duration": 1798, "title": "Part 1, Sections 8 - 10"}, 
+    {"href": "http://www.archive.org/download/flatland_rg_librivox/flatland_5_abbott.mp3", "type": "audio/mpeg", "bitrate": 128, "duration": 1225, "title": "Part 1, Sections 11 - 12"}, 
+    {"href": "http://www.archive.org/download/flatland_rg_librivox/flatland_6_abbott.mp3", "type": "audio/mpeg", "bitrate": 128, "duration": 1659, "title": "Part 2, Sections 13 - 14"}, 
+    {"href": "http://www.archive.org/download/flatland_rg_librivox/flatland_7_abbott.mp3", "type": "audio/mpeg", "bitrate": 128, "duration": 2086, "title": "Part 2, Sections 15 - 17"}, 
+    {"href": "http://www.archive.org/download/flatland_rg_librivox/flatland_8_abbott.mp3", "type": "audio/mpeg", "bitrate": 128, "duration": 2662, "title": "Part 2, Sections 18 - 20"}, 
+    {"href": "http://www.archive.org/download/flatland_rg_librivox/flatland_9_abbott.mp3", "type": "audio/mpeg", "bitrate": 128, "duration": 1177, "title": "Part 2, Sections 21 - 22"}
+  ],
+  
+  "timeline": [
+    {"href": "http://example.org/part1.mp3#t=0,299", "title": "Introduction"},
+    {"href": "http://example.org/part1.mp3#t=300", "title": "Part 1", "children": [
+      {"href": "http://example.org/part1.mp3#t=300,1319", "title": "Chapter 1"},
+      {"href": "http://example.org/part1.mp3#t=1320", "title": "Chapter 2"}
+    ]},
+    {"href": "http://example.org/part2.mp3", "title": "Part 2", "children": [
+      {"href": "http://example.org/part2.mp3#t=0,539", "title": "Chapter 3"},
+      {"href": "http://example.org/part2.mp3#t=540,839", "title": "Chapter 4"},
+      {"href": "http://example.org/part2.mp3#t=840", "title": "Chapter 5"}
+    ]},
+    {"href": "http://example.org/part3.mp3", "title": "Part 3", "children": [
+      {"href": "http://example.org/part3.mp3#t=0,599", "title": "Chapter 6"},
+      {"href": "http://example.org/part3.mp3#t=600", "title": "Chapter 7"}
+    ]}
+  ]
+}
