@@ -53,31 +53,9 @@
     
     "contributor": [
         {
-        "name": {
-            "ru": "Эдвин Эбботт Эбботт",
-            "en": "Edwin Abbott Abbott"
-        },        
-        "sort_as": {
-            "ru": "Эбботт, Эдвин Эбботт",
-            "en": "Abbott, Edwin Abbott"
-        },        
+        "name": "Abe Illustrator",
         "scheme": "https://www.loc.gov/marc/relators/",
-        "role": ["aut"]
-        }, 
-        {
-        "name": "Edwin Abbott Abbott",
-        "scheme": "https://www.loc.gov/marc/relators/",
-        "role": ["led"]
-        },
-        {
-        "name": "Abe Narrator",
-        "scheme": "https://www.loc.gov/marc/relators/",
-        "role": ["nrt"]
-        },
-        {
-        "name": "Beatrice Narrator",
-        "scheme": "https://www.loc.gov/marc/relators/",
-        "role": ["nrt"]
+        "role": ["ill"]
         }
     ],
     
