@@ -25,8 +25,20 @@
         "name": "Beatrice Narrator",
         "scheme": "https://www.loc.gov/marc/relators/",
         }
-    ]
-    ,
+    ],
+    "illustrator": [
+        {
+        "name": "Abe Illustrator",
+        "scheme": "https://www.loc.gov/marc/relators/",
+        }
+    ],
+    "translator": [
+        {
+        "name": "Abe Illustrator",
+        "scheme": "https://www.loc.gov/marc/relators/",
+        }
+    ],
+    
     "language": "en-US",
     "description": "Flatland: A Romance of Many Dimensions is an 1884 science fiction novella by the English schoolmaster Edwin Abbott Abbott. As a satire, Flatland offered pointed observations on the social hierarchy of Victorian culture. However, the novella's more enduring contribution is its examination of dimensions; in a foreword to one of the many publications of the novella, noted science writer Isaac Asimov described Flatland as \"The best introduction one can find into the manner of perceiving dimensions.\" As such, the novella is still popular amongst mathematics, physics and computer science students. (Summary by Wikipedia)",
     "subject": ["General Fiction", "Satire", "Science Fiction"],
@@ -50,14 +62,6 @@
     "bitrate": 128,
     "samplerate": "8.5",
     "channels": 2,
-    
-    "contributor": [
-        {
-        "name": "Abe Illustrator",
-        "scheme": "https://www.loc.gov/marc/relators/",
-        "role": ["ill"]
-        }
-    ],
     
     "schema:hasPart": [
         {
