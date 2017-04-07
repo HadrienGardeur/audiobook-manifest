@@ -20,12 +20,10 @@
         {
         "name": "Abe Narrator",
         "scheme": "https://www.loc.gov/marc/relators/",
-        "role": ["nrt"]
         },
         {
         "name": "Beatrice Narrator",
         "scheme": "https://www.loc.gov/marc/relators/",
-        "role": ["nrt"]
         }
     ]
     ,
