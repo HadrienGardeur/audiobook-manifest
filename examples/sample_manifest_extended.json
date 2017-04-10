@@ -19,23 +19,19 @@
     "narrator": [
         {
         "name": "Abe Narrator",
-        "scheme": "https://www.loc.gov/marc/relators/",
         },
         {
         "name": "Beatrice Narrator",
-        "scheme": "https://www.loc.gov/marc/relators/",
         }
     ],
     "illustrator": [
         {
         "name": "Abe Illustrator",
-        "scheme": "https://www.loc.gov/marc/relators/",
         }
     ],
     "translator": [
         {
         "name": "Abe Illustrator",
-        "scheme": "https://www.loc.gov/marc/relators/",
         }
     ],
     
@@ -100,8 +96,8 @@
 "links": [
     {"rel": "self", "href": "https://github.com/HadrienGardeur/audiobook-manifest/blob/master/examples/flatland.audiobook-manifest", "type": "application/audiobook+json"},
     
-    {"rel": "alternate", "href": "https://hadriengardeur.github.io/webpub-manifest/examples/MobyDick/manifest.json", "type": "application/webpub+json"},
-    {"rel": "alternate", "href": "https://[...]/appendix.pdf", "type": "application/pdf"},    
+    {"rel": "related", "href": "https://hadriengardeur.github.io/webpub-manifest/examples/MobyDick/manifest.json", "type": "application/webpub+json"},
+    {"rel": "related", "href": "https://[...]/appendix.pdf", "type": "application/pdf"},    
     
     {"rel": "license", "href": "http://[...]/license.lcpl", "type": "application/vnd.readium.lcp.license.v1.0+json"},    
     
@@ -115,7 +111,6 @@
     {
         "href": "http://www.archive.org/download/flatland_rg_librivox/flatland_1_abbott.mp3", 
         "type": "audio/mpeg", 
-        "bitrate": 128, 
         "duration": 1371, 
         "title": "Part 1, Sections 1 - 3",
         "properties": {
@@ -131,7 +126,9 @@
     {
         "href": "http://www.archive.org/download/flatland_rg_librivox/flatland_2_abbott.mp3", 
         "type": "audio/mpeg", 
-        "bitrate": 128, 
+        "bitrate": 64, 
+        "samplerate": "16",
+        "channels": 1,
         "duration": 1669, 
         "title": "Part 1, Sections 4 - 5", 
         "properties": {
