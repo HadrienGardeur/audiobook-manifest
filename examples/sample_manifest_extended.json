@@ -79,18 +79,6 @@
     
     "schema:license": "https://creativecommons.org/publicdomain/zero/1.0/",
     
-    "schema:hasPart": [
-        {
-            "schema:url": "http://www.archive.org/download/flatland_rg_librivox/flatland_1_abbott.mp3",
-            "narrator": "Abe Narrator"
-        }
-    ],
-    "schema:hasPart": [
-        {
-            "schema:url": "http://www.archive.org/download/flatland_rg_librivox/flatland_2_abbott.mp3",
-            "narrator": "Beatrice Narrator"
-        }
-    ],
 },
 
 "links": [
