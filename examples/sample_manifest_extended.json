@@ -8,32 +8,25 @@
             "ru": "Эдвин Эбботт Эбботт",
             "en": "Edwin Abbott Abbott"
         },        
-        "sort_as": {
-            "ru": "Эбботт, Эдвин Эбботт",
-            "en": "Abbott, Edwin Abbott"
-        },
+        "sort_as": "Abbott, Edwin Abbott",
     }, {
         "name": "Bob Braggert",
         "sort_as": "Braggert, Bob"
     }],
     "narrator": [
         {
-        "name": "Abe Narrator",
+            "name": {
+                "ru": "Эдвин Эбботт Эбботт",
+                "en": "Edwin Abbott Abbott"
+            },        
         },
         {
-        "name": "Beatrice Narrator",
+            "name": "Beatrice Narrator",
+            "image": "http://example.com/sample_headshot.jpg"
         }
     ],
-    "illustrator": [
-        {
-        "name": "Abe Illustrator",
-        }
-    ],
-    "translator": [
-        {
-        "name": "Abe Illustrator",
-        }
-    ],
+    "illustrator": ["Abe Illustrator", "Beatrice Illustrator"],
+    "translator": ["Abe Translator"],
     
     "language": "en-US",
     "description": "Flatland: A Romance of Many Dimensions is an 1884 science fiction novella by the English schoolmaster Edwin Abbott Abbott. As a satire, Flatland offered pointed observations on the social hierarchy of Victorian culture. However, the novella's more enduring contribution is its examination of dimensions; in a foreword to one of the many publications of the novella, noted science writer Isaac Asimov described Flatland as \"The best introduction one can find into the manner of perceiving dimensions.\" As such, the novella is still popular amongst mathematics, physics and computer science students. (Summary by Wikipedia)",
@@ -64,21 +57,17 @@
             "@type": "http://schema.org/VisualArtwork",
             "schema:url": "cover.jpg",
             "schema:license": "https://creativecommons.org/publicdomain/zero/1.0/"
-        },
-        {
-            "@type": "http://schema.org/Book",
-            "schema:url": "this_is_for_copyright_on_text_copy",
-            "schema:license": "https://creativecommons.org/publicdomain/zero/1.0/"
-        },
-        {
-            "@type": "http://bib.schema.org/Audiobook",
-            "schema:url": "this_is_for_copyright_on_performance",
-            "schema:license": "https://creativecommons.org/publicdomain/zero/1.0/"
         }
     ],
     
     "schema:license": "https://creativecommons.org/publicdomain/zero/1.0/",
     
+    "schema:isBasedOn": {
+        "@type": "https://schema.org/Book",
+        "title": "Moby-Dick",
+        "schema:license": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "schema:url": "http://example.org/book/123"
+    }    
 },
 
 "links": [
