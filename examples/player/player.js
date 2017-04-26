@@ -2,14 +2,6 @@
 
 (function() {
 
-  if (navigator.serviceWorker) {
-    //HINT: Make sure that the path to your Service Worker is correct
-    navigator.serviceWorker.register('sw.js');
-  
-    navigator.serviceWorker.ready.then(function() {
-      console.log('SW ready');
-    }); 
-  };
   
   var DEFAULT_MANIFEST = "https://hadriengardeur.github.io/audiobook-manifest/examples/flatland.audiobook/manifest.json";
   var current_url_params = new URLSearchParams(location.href);
@@ -33,8 +25,6 @@
   var cover = document.getElementById("cover");
   var next = document.getElementById("next");
   var previous = document.getElementById("previous");
-
-  if (navigator.serviceWorker) verifyAndCacheManifest(manifest_url).catch(function() {});
 
   var saved_track = localStorage.getItem(manifest_url+"#track");
   var saved_position = localStorage.getItem(manifest_url+"#t");
@@ -85,46 +75,6 @@
     }).then(function(response) {
       return response.json();
     })
-  };
-
-  function verifyAndCacheManifest(url) {
-    return caches.open(url).then(function(cache) {
-      return cache.match(url).then(function(response){
-        if (!response) {
-          console.log("No cache key found");
-          console.log('Caching manifest at: '+url);
-          return cacheManifest(url);
-        } else {
-          console.log("Found cache key");
-        };
-      })
-    });
-  };
-  
-  function cacheURL(data, manifest_url) {
-    return caches.open(manifest_url).then(function(cache) {
-      return cache.addAll(data.map(function(url) {
-        console.log("Caching "+url);
-        return new URL(url, manifest_url);
-      }));
-    });
-  };
-
-  function cacheManifest(url) {
-    var manifestJSON = getManifest(url);
-    return Promise.all([cacheSpine(manifestJSON, url), cacheResources(manifestJSON, url)])
-  };
-
-  function cacheSpine(manifestJSON, url) {
-    return manifestJSON.then(function(manifest) {
-      return manifest.spine.map(function(el) { return el.href});}).then(function(data) {
-        data.push(url);
-        return cacheURL(data, url);})
-  };
-
-  function cacheResources(manifestJSON, url) {
-    return manifestJSON.then(function(manifest) {
-      return manifest.resources.map(function(el) { return el.href});}).then(function(data) {return cacheURL(data, url);})
   };
 
   function initializeNavigation(url, track_url) {
