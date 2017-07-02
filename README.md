@@ -4,6 +4,8 @@
 
 ```json
 {
+  "@context": "http://readium.org/webpub/default.jsonld",
+  
   "metadata": {
     "@type": "http://bib.schema.org/Audiobook",
     "identifier": "urn:isbn:9780000000001",
@@ -14,9 +16,7 @@
     "publisher": "Whale Publishing Ltd.",
     "published": "2016-02-01",
     "modified": "2016-02-18T10:32:18Z",
-    "duration": 4320,
-    "type": "audio/mpeg",
-    "bitrate": 128
+    "duration": 4320
   },
 
   "links": [
@@ -74,10 +74,6 @@ The core metadata for the audiobook manifest are based on [the default context f
 - it must include a `duration` element that provides the total duration of the audiobook
 - it must also include the `narrator` element
 
-While the format and bitrate of each audio file that constitute the audiobook are provided in the `spine`, it is also recommended to include:
-
-- the main media type used for the audio files using the `type` element
-- the bitrate for those files using the `bitrate` element
 
 ## Listing Audio Files
 
