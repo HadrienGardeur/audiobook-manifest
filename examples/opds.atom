@@ -2,11 +2,35 @@
 <feed xmlns:dcterms="http://purl.org/dc/terms/" xmlns:thr="http://purl.org/syndication/thread/1.0" xmlns:opds="http://opds-spec.org/2010/catalog" xml:lang="en" xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:schema="https://schema.org/" xmlns="http://www.w3.org/2005/Atom">
   <id>audiobook-test</id>
   <title>Test Feed for Audiobooks</title>
-  <updated>2012-10-20T01:11:18Z</updated>
+  <updated>2017-07-03T01:11:18Z</updated>
   <author>
     <name>Hadrien Gardeur</name>
     <uri>https://github.com/HadrienGardeur</uri>
   </author>
+
+  <entry schema:additionalType="https://bib.schema.org/Audiobook">
+    <title>Les Trois Mousquetaires</title>
+    <id>https://librivox.org/les-trois-mousquetaires-by-alexandre-dumas/</id>
+    <author>
+      <name>Alexandre Dumas</name>
+    </author>
+    <contributor>
+      <name>Jc Guan</name>
+    </contributor>
+    <published>2017-04-26T16:32:18Z</published>
+    <updated>2017-04-26T16:32:18Z</updated>
+    <dcterms:language>fr</dcterms:language>
+    <category label="General Fiction" />
+    <category label="Adventure" />
+    <content type="html">
+      Le roman raconte les aventures d'un gascon désargenté de 18 ans, d'Artagnan, monté à Paris faire carrière. Il se lie d'amitié avec Athos, Porthos et Aramis, mousquetaires du roi Louis XIII. Ces quatre hommes vont s'opposer au premier ministre, le Cardinal de Richelieu et à ses agents, dont la belle et mystérieuse Milady de Winter, pour sauver l'honneur de la reine de France Anne d'Autriche. Avec ses nombreux combats et ses rebondissements romanesques, Les Trois mousquetaires est l'exemple type du roman de cape et d'épée. (Summary from Wikipedia)
+    </content>
+    <rights>This work is published under a CC0 license.</rights>
+    <dcterms:extent>26:57:35</dcterms:extent>
+    <link type="application/audiobook+json" rel="http://opds-spec.org/acquisition/open-access" href="https://hadriengardeur.github.io/audiobook-manifest/examples/mousquetaires.audiobook-manifest" />
+    <link type="image/jpeg" rel="http://opds-spec.org/image" href="hhttp://ia802605.us.archive.org/20/items/LibrivoxCdCoverArt5/troismousquetaires_dumas_1008.jpg" />
+    <link type="image/jpeg" rel="http://opds-spec.org/image/thumbnail" href="http://ia802605.us.archive.org/20/items/LibrivoxCdCoverArt5/troismousquetaires_dumas_1008.jpg" />
+  </entry>
 
   <entry schema:additionalType="https://bib.schema.org/Audiobook">
     <title>Flatland: A Romance of Many Dimensions</title>
