@@ -75,7 +75,7 @@ The core metadata for the audiobook manifest are based on [the default context f
 - it must also include the `narrator` element
 
 
-## Listing Audio Files
+## Listing Audio Files (Spine)
 
 An audiobook is divided into one or more audio files, which are all listed in the `spine` of the manifest, in reading order.
 
@@ -110,6 +110,13 @@ Each link object in a `timeline` collection has the following requirements:
 - it must point to an audio file listed in the `spine` and use a media fragment to point to a specific timestamp
 - it must provide a `title`
 - it must not use `type`, `duration` or `bitrate` to avoid duplication with the `spine`
+
+If omitted, then the `spine` should have all infomation needed to label chapters.
+
+Timelines are typically most useful for two scenarios:
+
+- Audiobooks with a complex table of contents
+- When the spine contains a single file, and therefore no chapter information.
 
 ## Container
 
