@@ -1,4 +1,5 @@
 {
+  "@context": "http://readium.org/webpub/default.jsonld",
   "metadata": {
     "@type": "http://bib.schema.org/Audiobook",
     "identifier": "https://librivox.org/les-trois-mousquetaires-by-alexandre-dumas/",
@@ -16,14 +17,12 @@
     "modified": "2017-04-26T16:32:18Z",
     "published": "2008-10-10",
     "duration": 97055,
-    "type": "audio/mpeg",
-    "bitrate": 128,
     "schema:license": "https://creativecommons.org/publicdomain/zero/1.0/"
   },
 
   "links": [
     {"rel": "self", "href": "https://hadriengardeur.github.io/audiobook-manifest/examples/mousquetaires.audiobook-manifest", "type": "application/audiobook+json"},
-    {"rel": "cover", "href": "http://www.archive.org/download/LibrivoxCdCoverArt5/troismousquetaires_dumas_1008.jpg", "type": "image/jpeg", "height": 300, "width": 300}
+    {"rel": "cover", "href": "http://ia802605.us.archive.org/20/items/LibrivoxCdCoverArt5/troismousquetaires_dumas_1008.jpg", "type": "image/jpeg", "height": 300, "width": 300}
   ],
 
   "spine": [

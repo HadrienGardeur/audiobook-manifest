@@ -1,4 +1,5 @@
 {
+  "@context": "http://readium.org/webpub/default.jsonld",
   "metadata": {
     "@type": "http://bib.schema.org/Audiobook",
     "identifier": "https://librivox.org/flatland-a-romance-of-many-dimensions-by-edwin-abbott-abbott/",
@@ -12,8 +13,6 @@
     "modified": "2016-08-11T19:32:18Z",
     "published": "2008-10-12",
     "duration": 15153,
-    "type": "audio/mpeg",
-    "bitrate": 128,
     "schema:license": "https://creativecommons.org/publicdomain/zero/1.0/"
   },
 
