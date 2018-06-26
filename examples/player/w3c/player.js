@@ -13,6 +13,8 @@
     var manifest_url = DEFAULT_MANIFEST;
   };
 
+  var manifest = getManifest(manifest_url);
+
   if (current_url_params.has("track")) {
     console.log("Found reference to a document in params")
     var track = current_url_params.get("track");
@@ -116,30 +118,30 @@
     } else {
       var current_src = audio_source.src;
     }
-    return getManifest(url).then(function(json) { return json.readingOrder} ).then(function(readingOrder) {
+    return getManifest(url).then(function(json) { return json.readingOrder} ).then(function(item) {
 
-      var current_index = readingOrder.findIndex(function(element) {
+      var current_index = item.findIndex(function(element) {
         var element_url = new URL(element.url, url);
         return element_url.url == current_src;
       })
       
       if (current_index >= 0) {
 
-        audio_source.src = new URL(readingOrder[current_index].url, url).href;
+        audio_source.src = new URL(item[current_index].url, url).href;
         localStorage.setItem(url+"#track", audio_source.src);
-        audio_source.type = readingOrder[current_index].fileFormat;
+        audio_source.type = item[current_index].fileFormat;
         audio.load();
 
         if (current_index > 0) {
-          console.log("Previous track is: "+readingOrder[current_index - 1].url);
-          previous.href = new URL(readingOrder[current_index - 1].url, url).href;
+          console.log("Previous track is: "+item[current_index - 1].url);
+          previous.href = new URL(item[current_index - 1].url, url).href;
         } else {
           previous.removeAttribute("href");
         };
         
         if (current_index < (spine.length-1)) {
-          console.log("Next track is: "+readingOrder[current_index + 1].url);
-          next.href = new URL(readingOrder[current_index + 1].url, url).href;
+          console.log("Next track is: "+item[current_index + 1].url);
+          next.href = new URL(item[current_index + 1].url, url).href;
         } else {
           next.removeAttribute("href");
         };
