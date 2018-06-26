@@ -13,9 +13,6 @@
     var manifest_url = DEFAULT_MANIFEST;
   };
 
-  var manifest = getManifest(manifest_url);
-  console.log(manifest.name)
-
   if (current_url_params.has("track")) {
     console.log("Found reference to a document in params")
     var track = current_url_params.get("track");
@@ -122,9 +119,10 @@
     return getManifest(url).then(function(json) { return json.readingOrder} ).then(function(item) {
 
       var current_index = item.findIndex(function(element) {
+        console.log("Current URL is "+element.url);
         var element_url = new URL(element.url, url);
-        console.log("Comparing "+element_url.url+" with "+current_src);
-        return element_url.url == current_src;
+        console.log("Comparing "+element_url+" with "+current_src);
+        return element_url == current_src;
       })
       console.log("Current index is "+current_index);
 
