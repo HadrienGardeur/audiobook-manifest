@@ -123,9 +123,10 @@
 
       var current_index = item.findIndex(function(element) {
         var element_url = new URL(element.url, url);
+        console.log("Comparing "+element_url.url+" with "+current_src);
         return element_url.url == current_src;
       })
-      console.log("Current index is "+current_index)
+      console.log("Current index is "+current_index);
 
       if (current_index >= 0) {
         console.log("Setting audio element src to: "+item[current_index].url)
