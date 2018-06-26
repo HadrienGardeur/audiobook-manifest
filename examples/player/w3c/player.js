@@ -98,8 +98,6 @@
       
       //Set start track
       var start_url = new URL(item[0].url, url).href;
-      console.log("using JSON: "+item[0].url);
-      console.log("start_url: "+start_url);
       if (track_url) {
         updateTrack(url, track_url);
       } else {
@@ -119,9 +117,9 @@
     return getManifest(url).then(function(json) { return json.readingOrder} ).then(function(item) {
 
       var current_index = item.findIndex(function(element) {
-        console.log("Current URL is "+element.url);
+        //console.log("Current URL is "+element.url);
         var element_url = new URL(element.url, url);
-        console.log("Comparing "+element_url+" with "+current_src);
+        //console.log("Comparing "+element_url+" with "+current_src);
         return element_url == current_src;
       })
       console.log("Current index is "+current_index);
@@ -140,7 +138,7 @@
           previous.removeAttribute("href");
         };
         
-        if (current_index < (spine.length-1)) {
+        if (current_index < (item.length-1)) {
           console.log("Next track is: "+item[current_index + 1].url);
           next.href = new URL(item[current_index + 1].url, url).href;
         } else {
