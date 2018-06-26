@@ -3,7 +3,7 @@
 (function() {
 
   
-  var DEFAULT_MANIFEST = "https://w3c.github.io/wpub/experiments/audiobook/flatland.json";
+  var DEFAULT_MANIFEST = "https://hadriengardeur.github.io/audiobook-manifest/examples/player/w3c/flatland.json";
   var current_url_params = new URLSearchParams(location.href);
 
   if (current_url_params.has("href")) {
