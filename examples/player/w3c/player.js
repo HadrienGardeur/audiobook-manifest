@@ -14,6 +14,7 @@
   };
 
   var manifest = getManifest(manifest_url);
+  console.log(manifest.name)
 
   if (current_url_params.has("track")) {
     console.log("Found reference to a document in params")
@@ -124,9 +125,10 @@
         var element_url = new URL(element.url, url);
         return element_url.url == current_src;
       })
-      
-      if (current_index >= 0) {
+      console.log("Current index is "+current_index)
 
+      if (current_index >= 0) {
+        console.log("Setting audio element src to: "+item[current_index].url)
         audio_source.src = new URL(item[current_index].url, url).href;
         localStorage.setItem(url+"#track", audio_source.src);
         audio_source.type = item[current_index].fileFormat;
