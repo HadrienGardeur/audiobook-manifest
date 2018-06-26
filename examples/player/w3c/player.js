@@ -3,7 +3,7 @@
 (function() {
 
   
-  var DEFAULT_MANIFEST = "http://w3c.github.io/wpub/experiments/audiobook/flatland.json";
+  var DEFAULT_MANIFEST = "https://w3c.github.io/wpub/experiments/audiobook/flatland.json";
   var current_url_params = new URLSearchParams(location.href);
 
   if (current_url_params.has("href")) {
@@ -94,11 +94,12 @@
       }, this);
       
       return json.readingOrder;
-    }).then(function(readingOrder) {
+    }).then(function(item) {
       
       //Set start track
-      var start_url = new URL(readingOrder[0].url, url).href;
-
+      var start_url = new URL(item[0].url, url).href;
+      console.log("using JSON: "+item[0].url);
+      console.log("start_url: "+start_url);
       if (track_url) {
         updateTrack(url, track_url);
       } else {
