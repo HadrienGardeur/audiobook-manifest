@@ -51,7 +51,7 @@ While the Audiobook Manifest is technically a profile of the Readium Web Publica
 
 The core metadata for the audiobook manifest are based on [the default context for the Readium Web Publication Manifest](https://github.com/readium/webpub-manifest/tree/master/contexts/default) with the following additional requirements:
 
-- it must include a `@type` element that identifies the manifest as an audiobook using the bib extension to schema.org: `http://bib.schema.org/Audiobook`
+- it must include a `@type` element that identifies the manifest as an audiobook: `http://schema.org/Audiobook`
 - it must include a `duration` element that provides the total duration of the audiobook
 - it must also include the `narrator` element
 
