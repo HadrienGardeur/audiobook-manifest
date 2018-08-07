@@ -6,7 +6,7 @@
     "title": "Les Trois Mousquetaires",
     "author": {
       "name": "Alexandre Dumas", 
-      "sort_as": "Dumas, Alexandre",
+      "sortAs": "Dumas, Alexandre",
       "identifier": "http://www.isni.org/isni/0000000121012885"
     },
     "narrator": "Jc Guan",
@@ -25,7 +25,7 @@
     {"rel": "cover", "href": "http://ia802605.us.archive.org/20/items/LibrivoxCdCoverArt5/troismousquetaires_dumas_1008.jpg", "type": "image/jpeg", "height": 300, "width": 300}
   ],
 
-  "spine": [
+  "readingOrder": [
     {"href": "https://www.archive.org/download/trois_mousquetaires_0810_librivox/troismousquetaires_00_dumas.mp3", "type": "audio/mpeg", "bitrate": 128, "duration": 375, "title": "Préface"},
     {"href": "https://www.archive.org/download/trois_mousquetaires_0810_librivox/troismousquetaires_01_dumas.mp3", "type": "audio/mpeg", "bitrate": 128, "duration": 2482, "title": "Les trois présents de M. d'Artagnan père"},
     {"href": "https://www.archive.org/download/trois_mousquetaires_0810_librivox/troismousquetaires_02_dumas.mp3", "type": "audio/mpeg", "bitrate": 128, "duration": 1694, "title": "L'antichambre de M. de Tréville"},
