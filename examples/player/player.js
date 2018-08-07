@@ -93,11 +93,11 @@
         }
       }, this);
       
-      return json.spine;
-    }).then(function(spine) {
+      return json.readingOrder;
+    }).then(function(readingOrder) {
       
       //Set start track
-      var start_url = new URL(spine[0].href, url).href;
+      var start_url = new URL(readingOrder[0].href, url).href;
 
       if (track_url) {
         updateTrack(url, track_url);
@@ -115,30 +115,30 @@
     } else {
       var current_src = audio_source.src;
     }
-    return getManifest(url).then(function(json) { return json.spine} ).then(function(spine) {
+    return getManifest(url).then(function(json) { return json.readingOrder} ).then(function(readingOrder) {
 
-      var current_index = spine.findIndex(function(element) {
+      var current_index = readingOrder.findIndex(function(element) {
         var element_url = new URL(element.href, url);
         return element_url.href == current_src;
       })
       
       if (current_index >= 0) {
 
-        audio_source.src = new URL(spine[current_index].href, url).href;
+        audio_source.src = new URL(readingOrder[current_index].href, url).href;
         localStorage.setItem(url+"#track", audio_source.src);
-        audio_source.type = spine[current_index].type;
+        audio_source.type = readingOrder[current_index].type;
         audio.load();
 
         if (current_index > 0) {
-          console.log("Previous track is: "+spine[current_index - 1].href);
-          previous.href = new URL(spine[current_index - 1].href, url).href;
+          console.log("Previous track is: "+readingOrder[current_index - 1].href);
+          previous.href = new URL(readingOrder[current_index - 1].href, url).href;
         } else {
           previous.removeAttribute("href");
         };
         
-        if (current_index < (spine.length-1)) {
-          console.log("Next track is: "+spine[current_index + 1].href);
-          next.href = new URL(spine[current_index + 1].href, url).href;
+        if (current_index < (readingOrder.length-1)) {
+          console.log("Next track is: "+readingOrder[current_index + 1].href);
+          next.href = new URL(readingOrder[current_index + 1].href, url).href;
         } else {
           next.removeAttribute("href");
         };
