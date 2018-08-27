@@ -3,7 +3,7 @@
 (function() {
 
   
-  var DEFAULT_MANIFEST = "https://hadriengardeur.github.io/audiobook-manifest/examples/flatland.audiobook/manifest.json";
+  var DEFAULT_MANIFEST = "https://hadriengardeur.github.io/audiobook-manifest/examples/flatland.audiobook-manifest";
   var current_url_params = new URLSearchParams(location.href);
 
   if (current_url_params.has("href")) {
@@ -84,14 +84,16 @@
       document.querySelector("title").textContent = title;
 
       //Search for cover and add it
-      json.links.forEach(function(link) {
-        if (link.rel) {
-          if (link.rel=="cover") {
-            console.log("Found cover: "+link.href);
-            cover.src = new URL(link.href, url).href;
+      if (json.links) {
+        json.links.forEach(function(link) {
+          if (link.rel) {
+            if (link.rel=="cover") {
+              console.log("Found cover: "+link.href);
+              cover.src = new URL(link.href, url).href;
+            }
           }
-        }
-      }, this);
+        }, this);
+      };
       
       return json.readingOrder;
     }).then(function(readingOrder) {
