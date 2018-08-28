@@ -4,10 +4,10 @@
 
 ```json
 {
-  "@context": "http://readium.org/webpub/default.jsonld",
+  "@context": "http://readium.org/webpub-manifest/context.jsonld",
   
   "metadata": {
-    "@type": "http://bib.schema.org/Audiobook",
+    "@type": "http://schema.org/Audiobook",
     "identifier": "urn:isbn:9780000000001",
     "title": "Moby-Dick",
     "author": "Herman Melville",
