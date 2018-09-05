@@ -1,7 +1,7 @@
 {
   "@context": "http://readium.org/webpub/default.jsonld",
   "metadata": {
-    "@type": "http://bib.schema.org/Audiobook",
+    "@type": "http://schema.org/Audiobook",
     "identifier": "https://librivox.org/flatland-a-romance-of-many-dimensions-by-edwin-abbott-abbott/",
     "title": "Flatland: A Romance of Many Dimensions",
     "author": {"name": "Edwin Abbott Abbott", "sortAs": "Abbott, Abbott Edwin"},
